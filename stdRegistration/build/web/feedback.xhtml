@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="#{request.contextPath}/css/bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="col-md-5 offset-md-3 my-5 alert alert-success">
+             <h2>Registration Feedback</h2>
+        <p>Dear Mr.<h:outputText value="#{std.name}"  /> Thank you for registering.</p>
+        <p>you are requested to pay <h:outputText value="#{regModel.total}"   />RWF</p>
+        </div>
+        </div>
+    </h:body>
+</html>
+

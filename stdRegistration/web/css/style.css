@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+
+.form{
+    width:60%;
+    margin:100px auto;
+    text-align: center;
+}
+
+.form-container{
+    width:80%;
+    margin:0 auto;
+}
+
+.form-container input{
+    width: 80%;
+    height:35px;
+    margin-top: 15px;
+    border:1px solid black;
+    border-radius: 5px;
+}
+.form-btn{
+    width:80%;
+    margin:20px auto;
+    font-size: 16px;
+    background-color: blue;
+    cursor:pointer;
+    color:white;
+}

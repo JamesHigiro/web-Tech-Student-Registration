@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Student Information</title>
+         <link rel="stylesheet" href="#{request.contextPath}/css/style.css"/>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form class="form">
+                <h1><h:outputText value="Student Information"/></h1>
+                <h:panelGrid class="form-container">
+                    <div class="input-controller">
+                        <h:outputLabel value="Id:" for="id" />
+                    <h:inputText id="id" value="#{regModel.student.id}" title="Id" />
+                    </div>
+                 
+                    <h:outputLabel value="Name:" for="name" />
+                    <h:inputText id="name" value="#{regModel.student.name}" title="Name" />
+                    <h:outputLabel value="Gender:" for="gender" />
+                    <h:inputText id="gender" value="#{regModel.student.gender}" title="Gender" />
+                    <h:outputLabel value="Dob:" for="dob" />
+                    <h:inputText id="dob" value="#{regModel.student.dob}" title="Dob" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:inputText>
+                    <h:commandButton class="form-btn" action="${regModel.goToNext()}" value="next" />
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

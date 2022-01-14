@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="#{request.contextPath}/css/bootstrap.css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+        <h3>Select Courses you want  to learn</h3>
+        <h:dataTable value="#{regModel.allCourses}"  var="course" border="1" class="table table-striped">
+            <h:column>
+                <f:facet  name="header">Code</f:facet>
+                <h:outputText value="${course.code}"></h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="${course.name}"></h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Credits</f:facet>
+                <h:outputText value="${course.credits}"></h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">Course Fee</f:facet>
+                <h:outputText value="${course.fees}"></h:outputText>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">action</f:facet>
+                <h:form>
+                    <h:commandButton class="btn btn-success" rendered="#{not regModel.checkCourse(course)}" value="Add"  action="#{regModel.addCourse(course)}"/>
+                    <h:commandButton class="btn btn-danger" rendered="#{regModel.checkCourse(course)}" value="Remove"  action="#{regModel.removeCourse(course)}"/>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+            </div>
+        <div class="col-md-4 mt-4">
+        <div class="card bg-light mb-3">
+            <div class="card-header">Your current selection</div>
+            <div class="card-body">
+                <h5>Number of Courses:<h:outputText value="#{regModel.count}"></h:outputText></h5>
+                <h5 class="credits">Total credits:<h:outputText value="#{regModel.totalCredits()}"></h:outputText></h5>
+                <h5>Total Fee:<h:outputText value="#{regModel.total} RWF"></h:outputText></h5>
+        </div>
+        </div>
+        <h:link class="badge badge-info" value="view details" outcome="/infoSelected.xhtml" />
+        <h:link class="badge badge-success ml-3" value="Complete Registration" outcome="check" />
+        </div>
+        </div>
+        </div>
+    </h:body>
+    
+</html>
+
